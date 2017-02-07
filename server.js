@@ -73,6 +73,10 @@ app.get('/pagecount', function (req, res) {
   }
 });
 
+app.get('/ip', function (req, res) {
+  res.send(req.headers['x-forwarded-for'] || req.connection.remoteAddress);
+});
+
 // error handling
 app.use(function(err, req, res, next){
   console.error(err.stack);
